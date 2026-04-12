@@ -1,0 +1,35 @@
+
+import { Inter } from 'next/font/google'
+import { ThemeProvider } from 'next-themes'
+import { GoogleProvider } from '@/components/google-provider'
+import { ChatBotWidget } from '@/components/chatbot/ChatBotWidget'
+import { Toaster } from 'sonner'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <title>MeetingAI - AI Meeting Assistant</title>
+        <meta name="description" content="AI-powered meeting transcription, summaries, and action items" />
+      </head>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <GoogleProvider>
+            {children}
+            <ChatBotWidget />
+            <Toaster richColors position="top-right" />
+          </GoogleProvider>
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
+
