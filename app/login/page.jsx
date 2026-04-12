@@ -57,7 +57,11 @@ export default function LoginPage() {
       
       router.push('/')
     } catch (err) {
-      toast.error(err.message || "Invalid credentials")
+      if (err.name === 'AbortError') {
+        toast.error("Request timed out. Please check if the backend is running and try again.")
+      } else {
+        toast.error(err.message || "Invalid credentials")
+      }
     } finally {
       setIsLoading(false)
     }
