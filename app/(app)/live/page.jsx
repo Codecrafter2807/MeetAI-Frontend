@@ -529,7 +529,7 @@ export default function LiveMeetingPage() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    {transcript.map((item, i) => (
+                    {transcript.filter(item => item.text && item.text.trim()).map((item, i) => (
                       <div
                         key={item.id}
                         className="flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300"
