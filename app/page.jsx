@@ -95,7 +95,8 @@ export default function HomePage() {
 
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch('http://localhost:8000/api/public/testimonials/')
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+        const res = await fetch(`${baseUrl}/api/public/testimonials/`)
         if (res.ok) {
           const data = await res.json()
           if (data.testimonials && data.testimonials.length > 0) {
