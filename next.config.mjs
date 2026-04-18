@@ -19,10 +19,9 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: [
-          {
-            key: 'Cross-Origin-Opener-Policy',
-            value: 'same-origin-allow-popups',
-          },
+          // Needed for Google Identity Services (Sign in with Google) to work in Chrome 136+
+          { key: 'Cross-Origin-Opener-Policy', value: 'unsafe-none' },
+          { key: 'Cross-Origin-Embedder-Policy', value: 'unsafe-none' },
         ],
       },
     ]
