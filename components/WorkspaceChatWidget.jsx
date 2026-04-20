@@ -165,9 +165,9 @@ export function WorkspaceChatWidget() {
   if (!workspace) return null;
 
   return (
-    <div className="fixed bottom-[5.5rem] sm:bottom-6 right-6 sm:right-24 z-50 flex flex-col items-end">
+    <div className="fixed bottom-[5rem] right-4 sm:bottom-6 sm:right-24 z-50 flex flex-col items-end">
       {isOpen && (
-        <Card className="flex flex-col mb-4 overflow-hidden border bg-background shadow-2xl h-[70vh] sm:h-[550px] w-[calc(100vw-3rem)] sm:w-[400px] rounded-2xl relative animate-in slide-in-from-bottom-5 fade-in duration-300">
+        <Card className="flex flex-col mb-3 sm:mb-4 overflow-hidden border bg-background shadow-2xl h-[60vh] max-h-[420px] sm:max-h-none sm:h-[550px] w-[calc(100vw-2rem)] sm:w-[400px] rounded-2xl relative animate-in slide-in-from-bottom-5 fade-in duration-300">
           <CardHeader className="border-b bg-muted/30 pb-3 pt-4 px-5 flex flex-row items-center justify-between space-y-0">
             <div className="flex items-center gap-3">
               <div className="bg-primary/10 p-2 rounded-lg">
@@ -321,9 +321,9 @@ export function WorkspaceChatWidget() {
       {/* Floating Action Button */}
       <button
         onClick={toggleChat}
-        className="relative flex items-center justify-center h-14 w-14 bg-emerald-600 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 active:scale-95 ring-4 ring-emerald-500/20"
+        className="relative flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 bg-emerald-600 text-white rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 active:scale-95 ring-4 ring-emerald-500/20"
       >
-        <Users className="h-6 w-6" />
+        <Users className="h-5 w-5 sm:h-6 sm:w-6" />
         {!isOpen && unreadCount > 0 && (
           <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-destructive-foreground ring-2 ring-background animate-in zoom-in-50">
             {unreadCount > 99 ? '99+' : unreadCount}

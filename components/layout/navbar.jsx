@@ -122,7 +122,7 @@ export function Navbar() {
               )}
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-80">
+          <DropdownMenuContent align="end" className="w-[calc(100vw-2rem)] sm:w-80 max-h-[80vh] overflow-y-auto">
             <div className="px-3 py-2">
               <h4 className="font-semibold">Notifications</h4>
             </div>
@@ -135,7 +135,7 @@ export function Navbar() {
               notifications.slice(0, 5).map((notification) => (
                 <DropdownMenuItem
                   key={notification.id}
-                  className="flex flex-col items-start gap-1 p-3 cursor-pointer"
+                  className="flex flex-col items-start gap-1 p-2.5 sm:p-3 cursor-pointer"
                   onClick={() => !notification.is_read && markAsRead(notification.id)}
                 >
                   <div className="flex w-full items-center justify-between">
