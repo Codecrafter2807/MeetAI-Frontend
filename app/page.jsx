@@ -67,18 +67,21 @@ export default function HomePage() {
       name: "Sarah Jenkins",
       role: "Product Manager at TechFlow",
       rating: 5,
+      avatar: "/avatars/avatar_1.png"
     },
     {
       quote: "The speaker identification is insanely accurate. I can finally search through weeks of client calls to find exactly what was promised.",
       name: "David Chen",
       role: "Sales Director, CloudScale",
       rating: 5,
+      avatar: "/avatars/avatar_2.png"
     },
     {
       quote: "We've saved easily 10+ hours a week across our engineering team. It integrates perfectly into our highly asynchronous culture.",
       name: "Elena Rodriguez",
       role: "VP of Engineering, BuildOps",
       rating: 5,
+      avatar: "/avatars/avatar_3.png"
     }
   ]
 
@@ -192,32 +195,38 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-32">
-        <div className="absolute inset-0 -z-10 overflow-hidden bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-500/20 via-background to-background">
-          <div className="absolute left-1/4 top-0 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] animate-pulse rounded-full bg-blue-500/20 blur-[100px]" />
-          <div className="absolute right-1/4 top-1/2 h-[500px] w-[500px] animate-pulse rounded-full bg-primary/20 blur-[120px]" style={{ animationDelay: '2s' }} />
+      <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-32 isolate">
+        {/* Dynamic Background */}
+        <div className="absolute inset-0 -z-10 bg-background">
+          <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3">
+            <div className="h-[500px] w-[500px] rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-[100px] mix-blend-screen animate-pulse" />
+          </div>
+          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3">
+            <div className="h-[600px] w-[600px] rounded-full bg-gradient-to-tr from-primary/20 to-blue-400/20 blur-[120px] mix-blend-screen animate-pulse" style={{ animationDelay: '2s' }} />
+          </div>
         </div>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 backdrop-blur-md transition-all hover:bg-blue-500/20">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 backdrop-blur-md transition-all hover:bg-blue-500/20 hover:scale-105 cursor-default">
               <Sparkles className="h-4 w-4" />
               Supercharge Your Workflow
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl text-balance bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground/90 to-muted-foreground pb-4">
-              Meetings That Actually Drive <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-primary">Results</span>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-7xl text-balance bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-muted-foreground pb-4 leading-tight">
+              Meetings That Actually <br className="hidden sm:block" /> Drive <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 filter drop-shadow-sm">Results</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground text-pretty max-w-2xl mx-auto">
-              Stop taking notes. Let AI instantly transcribe, summarize, and organize your calls into assigned tasks so your team can move faster.
+            <p className="mt-6 text-xl leading-relaxed text-muted-foreground text-pretty max-w-2xl mx-auto">
+              Stop taking notes. Let our advanced AI instantly transcribe, summarize, and organize your calls into assigned tasks so your team can move faster.
             </p>
             <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
               <Link href={isLoggedIn ? "/meetings" : "/register"}>
-                <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold bg-gradient-to-r from-blue-600 to-primary hover:from-blue-500 hover:to-blue-500 border-0 shadow-lg shadow-blue-500/30 transition-all hover:-translate-y-1 text-white">
+                <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold bg-foreground hover:bg-foreground/90 text-background border-0 shadow-2xl transition-all hover:-translate-y-1 hover:shadow-blue-500/25 rounded-xl">
                   {isLoggedIn ? 'Access Dashboard' : 'Start Free Trial'}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="#how-it-works">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold border-border/50 backdrop-blur-md hover:bg-muted/50 transition-all hover:-translate-y-1 hover:text-primary">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold border-border bg-background/50 backdrop-blur-md hover:bg-muted/50 transition-all hover:-translate-y-1 hover:text-foreground rounded-xl shadow-sm">
                   <Play className="mr-2 h-5 w-5 text-blue-500" />
                   See How It Works
                 </Button>
@@ -228,10 +237,9 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="relative border-t border-border/50 py-24 sm:py-32">
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,transparent,var(--tw-gradient-stops))] from-muted/30 to-background" />
+      <section id="features" className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-3xl text-center mb-20">
             <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               Everything You Need for Better Meetings
             </h2>
@@ -239,20 +247,70 @@ export default function HomePage() {
               Our AI-powered platform handles the heavy lifting so you can focus on what matters.
             </p>
           </div>
-          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="group relative overflow-hidden rounded-3xl border border-border/60 bg-card/50 backdrop-blur-xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/40"
-              >
-                <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl transition-all group-hover:bg-blue-500/20" />
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500/10 to-primary/10 text-blue-500 transition-all duration-500 group-hover:scale-110 group-hover:from-blue-500 group-hover:to-primary group-hover:text-white shadow-sm ring-1 ring-inset ring-blue-500/20">
-                  <feature.icon className="h-7 w-7" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+             {/* Large Box 1 */}
+             <div className="md:col-span-2 group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-br from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-blue-500/30">
+                <div className="absolute top-0 right-0 -mr-8 -mt-8 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition-all group-hover:bg-blue-500/20" />
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500 shadow-sm ring-1 ring-inset ring-blue-500/20">
+                  <Mic className="h-7 w-7" />
                 </div>
-                <h3 className="mt-8 text-xl font-bold text-foreground">{feature.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{feature.description}</p>
-              </div>
-            ))}
+                <h3 className="mt-6 text-2xl font-bold text-foreground">Real-time Transcription</h3>
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground max-w-sm">Capture every word with AI-powered speech recognition that works across accents and languages.</p>
+             </div>
+
+             {/* Small Box 1 */}
+             <div className="group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-bl from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-purple-500/30">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-500 mb-6">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Smart Summaries</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Get instant AI-generated summaries highlighting key points, decisions, and action items.</p>
+             </div>
+
+             {/* Small Box 2 */}
+             <div className="group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-tr from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-emerald-500/30">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-500 mb-6">
+                  <Users className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Speaker Identification</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Automatically identify and label different speakers for easy reference.</p>
+             </div>
+
+             {/* Small Box 3 */}
+             <div className="group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-t from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-amber-500/30">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500 mb-6">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Action Items</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">AI automatically extracts and tracks action items from your meetings.</p>
+             </div>
+
+             {/* Large Box 2 */}
+             <div className="md:col-span-2 group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-tl from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-indigo-500/30">
+                <div className="absolute bottom-0 left-0 -ml-8 -mb-8 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl transition-all group-hover:bg-indigo-500/20" />
+                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500 shadow-sm ring-1 ring-inset ring-indigo-500/20">
+                  <BarChart3 className="h-7 w-7" />
+                </div>
+                <h3 className="mt-6 text-2xl font-bold text-foreground">Meeting Analytics</h3>
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground max-w-sm">Gain insights into meeting patterns, participation rates, and productivity metrics.</p>
+             </div>
+
+             {/* Full Width Box */}
+             <div className="md:col-span-3 group relative overflow-hidden rounded-3xl border border-border/40 bg-card p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 transition-all hover:shadow-2xl hover:border-primary/30">
+                <div className="flex-1">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
+                    <CheckCircle className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Integration Ready</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground max-w-xl">Connect with Zoom, Google Meet, Teams, and your favorite productivity tools.</p>
+                </div>
+                <div className="flex-shrink-0 flex items-center gap-4 opacity-70">
+                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><CheckCircle className="h-5 w-5 text-muted-foreground"/></div>
+                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><Zap className="h-5 w-5 text-muted-foreground"/></div>
+                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><ArrowRight className="h-5 w-5 text-muted-foreground"/></div>
+                </div>
+             </div>
           </div>
         </div>
       </section>
@@ -402,40 +460,49 @@ export default function HomePage() {
       )}
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="border-t border-border/50 py-20 sm:py-32 relative overflow-hidden bg-muted/5">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-500/5 via-transparent to-transparent" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+      <section id="testimonials" className="py-24 sm:py-32 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/5 via-background to-background" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mx-auto max-w-2xl text-center mb-20">
+            <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
               Trusted by Innovative Teams
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              See how MeetingAI is transforming workflows for companies around the world.
+            <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
+              Don't just take our word for it. See how MeetingAI is transforming workflows.
             </p>
           </div>
           
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial, i) => (
-              <div key={i} className="relative flex flex-col rounded-3xl border border-border/50 bg-card p-8 shadow-lg shadow-blue-500/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-blue-500/10 hover:border-blue-500/30">
-                <div className="mb-6 flex gap-1">
-                  {[...Array(testimonial.rating || 5)].map((_, j) => (
-                    <Sparkles key={j} className="h-5 w-5 text-blue-500 fill-current" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground leading-relaxed flex-grow text-lg italic">
-                  "{testimonial.quote}"
-                </p>
-                <div className="mt-8 flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg border border-blue-200">
-                    {testimonial.name.charAt(0)}
+          <div className="relative flex overflow-hidden w-full group">
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+            
+            <div className="flex animate-marquee group-hover:[animation-play-state:paused] gap-6 px-4">
+              {[...testimonials, ...testimonials, ...testimonials].map((testimonial, i) => (
+                <div key={i} className="flex-none w-[400px] relative flex flex-col rounded-3xl border border-border/40 bg-card/60 backdrop-blur-xl p-8 shadow-xl transition-all duration-300 hover:bg-card">
+                  <div className="mb-6 flex gap-1">
+                    {[...Array(testimonial.rating || 5)].map((_, j) => (
+                      <Sparkles key={j} className="h-5 w-5 text-blue-500 fill-current drop-shadow-sm" />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <p className="text-foreground/90 leading-relaxed flex-grow text-lg italic tracking-wide">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="mt-10 flex items-center gap-4">
+                    {testimonial.avatar ? (
+                      <img src={testimonial.avatar} alt={testimonial.name} className="h-14 w-14 rounded-full object-cover border-2 border-background shadow-md" />
+                    ) : (
+                      <div className="h-14 w-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-blue-600 font-bold text-xl border-2 border-background shadow-md">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                    )}
+                    <div>
+                      <h4 className="font-bold text-foreground text-lg">{testimonial.name}</h4>
+                      <p className="text-sm font-medium text-muted-foreground">{testimonial.role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
