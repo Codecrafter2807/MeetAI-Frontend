@@ -214,18 +214,18 @@ export default function MeetingHubPage() {
       </Dialog>
 
       {/* Header Section */}
-      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-4xl font-extrabold tracking-tight bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
             Strategic Insight Hub
           </h1>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-lg mt-1 sm:mt-0">
             Preparation, Execution, and Post-Meeting Intelligence.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex w-full sm:w-auto shrink-0">
           <Button 
-            className="gap-2 shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90"
+            className="w-full sm:w-auto gap-2 shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90 h-11 sm:h-10"
             onClick={() => { resetForm(); setIsDialogOpen(true); }}
           >
             <Plus className="h-4 w-4" />
@@ -237,43 +237,43 @@ export default function MeetingHubPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Preparation Radar */}
         <Card className="lg:col-span-2 border-primary/10 bg-gradient-to-br from-background to-accent/50">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
+          <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 sm:pb-2 gap-3 sm:gap-0">
             <div className="space-y-0.5">
-              <CardTitle className="text-xl flex items-center gap-2">
-                <Target className="h-5 w-5 text-primary" />
+              <CardTitle className="text-lg sm:text-xl flex items-center gap-2">
+                <Target className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0" />
                 Preparation Radar
               </CardTitle>
-              <CardDescription>Strategic context for your upcoming sessions</CardDescription>
+              <CardDescription className="text-xs sm:text-sm">Strategic context for your upcoming sessions</CardDescription>
             </div>
-            <Badge variant="secondary" className="px-3 py-1 bg-primary/10 text-primary border-none">
-              <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-              AI Prep Enabled
+            <Badge variant="secondary" className="w-fit px-2.5 py-1 sm:px-3 bg-primary/10 text-primary border-none shadow-sm">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-1.5" />
+              <span className="text-[10px] sm:text-xs font-semibold">AI Prep Enabled</span>
             </Badge>
           </CardHeader>
           <CardContent className="p-0">
             <div className="space-y-4 p-4 max-h-[550px] overflow-y-auto custom-scrollbar">
               {data.preparation.map((item, idx) => (
-                <div key={idx} className="group relative flex flex-col gap-4 rounded-xl border bg-card/50 p-5 hover:border-primary/30 transition-all cursor-pointer">
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors">
-                        <Calendar className="h-5 w-5" />
+                <div key={idx} className="group relative flex flex-col gap-3 sm:gap-4 rounded-xl border bg-card/50 p-4 sm:p-5 hover:border-primary/30 transition-all cursor-pointer shadow-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-0">
+                    <div className="flex items-start sm:items-center gap-3 w-full min-w-0">
+                      <div className="flex shrink-0 h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors">
+                        <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                       </div>
-                      <div>
-                        <h3 className="font-bold text-lg">{item.title}</h3>
-                        <div className="flex items-center gap-4">
-                          <p className="text-sm text-muted-foreground font-medium flex items-center gap-1.5">
-                            <Clock className="h-3.5 w-3.5" /> {item.time}
+                      <div className="min-w-0 flex-1">
+                        <h3 className="font-bold text-base sm:text-lg truncate tracking-tight pr-8 sm:pr-0">{item.title}</h3>
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mt-0.5 sm:mt-0">
+                          <p className="text-xs sm:text-sm text-muted-foreground font-medium flex items-center gap-1.5">
+                            <Clock className="h-3.5 w-3.5 shrink-0" /> <span className="truncate">{item.time}</span>
                           </p>
                           <Button 
                             size="sm" 
-                            className="h-7 px-3 text-[10px] font-bold uppercase tracking-wider gap-1.5 shadow-sm bg-emerald-600 hover:bg-emerald-700"
+                            className="h-7 px-3 text-[10px] font-bold uppercase tracking-wider gap-1.5 shadow-sm bg-emerald-600 hover:bg-emerald-700 w-fit shrink-0"
                             onClick={(e) => {
                               e.stopPropagation();
                               handleStartScheduled(item.id);
                             }}
                           >
-                            <Zap className="h-3 w-3" />
+                            <Zap className="h-3 w-3 shrink-0" />
                             Run Session
                           </Button>
                         </div>

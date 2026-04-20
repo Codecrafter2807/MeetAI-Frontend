@@ -72,64 +72,64 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="border-primary/10">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        <Card className="border-primary/10 transition-all hover:shadow-md">
+          <CardHeader className="flex flex-row items-center justify-between pb-2 px-3 sm:px-6 pt-4 sm:pt-6">
+            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground line-clamp-1">
               Total Meetings
             </CardTitle>
-            <Calendar className="h-5 w-5 text-primary opacity-70" />
+            <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-primary opacity-70 shrink-0 ml-1" />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{data.stats.totalMeetings}</div>
-            <div className="mt-1 flex items-center text-[10px] font-bold uppercase tracking-wider text-emerald-500">
+          <CardContent className="px-3 sm:px-6 pb-4 sm:pb-6">
+            <div className="text-2xl sm:text-3xl font-bold">{data.stats.totalMeetings}</div>
+            <div className="mt-1 flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-500">
               <TrendingUp className="mr-1 h-3 w-3" />
               Active
             </div>
           </CardContent>
         </Card>
  
-        <Card className="border-primary/10">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+        <Card className="border-primary/10 transition-all hover:shadow-md">
+          <CardHeader className="flex flex-row items-center justify-between pb-2 px-3 sm:px-6 pt-4 sm:pt-6">
+            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground line-clamp-1">
               Hours Transcribed
             </CardTitle>
-            <Clock className="h-5 w-5 text-primary opacity-70" />
+            <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-primary opacity-70 shrink-0 ml-1" />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{data.stats.hoursProcessed}</div>
-            <div className="mt-1 flex items-center text-[10px] font-bold uppercase tracking-wider text-emerald-500">
+          <CardContent className="px-3 sm:px-6 pb-4 sm:pb-6">
+            <div className="text-2xl sm:text-3xl font-bold">{data.stats.hoursProcessed}</div>
+            <div className="mt-1 flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-500">
               <TrendingUp className="mr-1 h-3 w-3" />
               Real-time
             </div>
           </CardContent>
         </Card>
  
-        <Card className="border-primary/10">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+        <Card className="border-primary/10 transition-all hover:shadow-md">
+          <CardHeader className="flex flex-row items-center justify-between pb-2 px-3 sm:px-6 pt-4 sm:pt-6">
+            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground line-clamp-1">
               Avg. Duration
             </CardTitle>
-            <BarChart3 className="h-5 w-5 text-primary opacity-70" />
+            <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-primary opacity-70 shrink-0 ml-1" />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold whitespace-nowrap">{data.stats.avgDuration}</div>
-            <div className="mt-1 flex items-center text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+          <CardContent className="px-3 sm:px-6 pb-4 sm:pb-6">
+            <div className="text-2xl sm:text-3xl font-bold whitespace-nowrap">{data.stats.avgDuration}</div>
+            <div className="mt-1 flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
               Per Audio
             </div>
           </CardContent>
         </Card>
  
-        <Card className="border-primary/10">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+        <Card className="border-primary/10 transition-all hover:shadow-md">
+          <CardHeader className="flex flex-row items-center justify-between pb-2 px-3 sm:px-6 pt-4 sm:pt-6">
+            <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground line-clamp-1">
               Accuracy Rate
             </CardTitle>
-            <CheckSquare className="h-5 w-5 text-primary opacity-70" />
+            <CheckSquare className="h-4 w-4 sm:h-5 sm:w-5 text-primary opacity-70 shrink-0 ml-1" />
           </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">{data.stats.accuracyRate}</div>
-            <div className="mt-1 flex items-center text-[10px] font-bold uppercase tracking-wider text-emerald-500">
+          <CardContent className="px-3 sm:px-6 pb-4 sm:pb-6">
+            <div className="text-2xl sm:text-3xl font-bold">{data.stats.accuracyRate}</div>
+            <div className="mt-1 flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-500">
               <TrendingUp className="mr-1 h-3 w-3" />
               AI Verified
             </div>
@@ -255,21 +255,21 @@ export default function AnalyticsPage() {
           <CardTitle className="text-base text-gray-800">Action Items Overview</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-6 sm:grid-cols-3">
-            <div className="rounded-xl border border-blue-100 bg-blue-50/30 p-6 text-center shadow-sm">
-              <CheckSquare className="mx-auto mb-3 h-8 w-8 text-blue-500" />
-              <p className="text-4xl font-extrabold tracking-tight text-blue-600">{data.actionItemStats?.total || 0}</p>
-              <p className="text-sm font-medium text-blue-600/70">Total Created</p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-6">
+            <div className="rounded-xl border border-blue-100 bg-blue-50/30 p-2 sm:p-6 text-center shadow-sm">
+              <CheckSquare className="mx-auto mb-1 sm:mb-3 h-5 w-5 sm:h-8 sm:w-8 text-blue-500" />
+              <p className="text-xl sm:text-4xl font-extrabold tracking-tight text-blue-600">{data.actionItemStats?.total || 0}</p>
+              <p className="text-[10px] sm:text-sm font-medium text-blue-600/70 mt-0.5">Total</p>
             </div>
-            <div className="rounded-xl border border-emerald-100 bg-emerald-50/30 p-6 text-center shadow-sm">
-              <CheckSquare className="mx-auto mb-3 h-8 w-8 text-emerald-500" />
-              <p className="text-4xl font-extrabold tracking-tight text-emerald-600">{data.actionItemStats?.completed || 0}</p>
-              <p className="text-sm font-medium text-emerald-600/70">Completed</p>
+            <div className="rounded-xl border border-emerald-100 bg-emerald-50/30 p-2 sm:p-6 text-center shadow-sm">
+              <CheckSquare className="mx-auto mb-1 sm:mb-3 h-5 w-5 sm:h-8 sm:w-8 text-emerald-500" />
+              <p className="text-xl sm:text-4xl font-extrabold tracking-tight text-emerald-600">{data.actionItemStats?.completed || 0}</p>
+              <p className="text-[10px] sm:text-sm font-medium text-emerald-600/70 mt-0.5">Completed</p>
             </div>
-            <div className="rounded-xl border border-amber-100 bg-amber-50/30 p-6 text-center shadow-sm">
-              <CheckSquare className="mx-auto mb-3 h-8 w-8 text-amber-500" />
-              <p className="text-4xl font-extrabold tracking-tight text-amber-600">{data.actionItemStats?.pending || 0}</p>
-              <p className="text-sm font-medium text-amber-600/70">Pending</p>
+            <div className="rounded-xl border border-amber-100 bg-amber-50/30 p-2 sm:p-6 text-center shadow-sm">
+              <CheckSquare className="mx-auto mb-1 sm:mb-3 h-5 w-5 sm:h-8 sm:w-8 text-amber-500" />
+              <p className="text-xl sm:text-4xl font-extrabold tracking-tight text-amber-600">{data.actionItemStats?.pending || 0}</p>
+              <p className="text-[10px] sm:text-sm font-medium text-amber-600/70 mt-0.5">Pending</p>
             </div>
           </div>
           <div className="mt-8">

@@ -396,8 +396,8 @@ export default function LiveMeetingPage() {
 
       {/* Status Bar */}
       <Card>
-        <CardContent className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 gap-4">
-          <div className="flex flex-wrap items-center gap-4">
+        <CardContent className="flex flex-col md:flex-row items-stretch md:items-center justify-between p-4 gap-4">
+          <div className="flex flex-wrap items-center justify-between gap-4 w-full md:w-auto">
             {/* Recording indicator */}
             <div className="flex items-center gap-2">
               <div
@@ -421,25 +421,28 @@ export default function LiveMeetingPage() {
               </span>
             </div>
 
-            {/* Timer */}
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Clock className="h-4 w-4 shrink-0" />
-              <span className="font-mono text-sm sm:text-lg">{formatTime(elapsedTime)}</span>
-            </div>
-
-            {/* Participants indicator */}
-            {(isRecording || isMeetingEnded) && (
+            <div className="flex items-center gap-4">
+              {/* Timer */}
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Users className="h-4 w-4 shrink-0" />
-                <span className="text-sm sm:text-base whitespace-nowrap">{new Set(transcript.map((t) => t.speaker)).size} detected</span>
+                <Clock className="h-4 w-4 shrink-0" />
+                <span className="font-mono text-sm sm:text-lg">{formatTime(elapsedTime)}</span>
               </div>
-            )}
+
+              {/* Participants indicator */}
+              {(isRecording || isMeetingEnded) && (
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Users className="h-4 w-4 shrink-0" />
+                  <span className="text-sm sm:text-base whitespace-nowrap hidden sm:inline">{new Set(transcript.map((t) => t.speaker)).size} detected</span>
+                  <span className="text-sm sm:text-base whitespace-nowrap sm:hidden">{new Set(transcript.map((t) => t.speaker)).size} spkrs</span>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Controls */}
-          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <div className="flex flex-row items-center gap-2 w-full md:w-auto">
             {!isRecording ? (
-              <Button onClick={() => handleStartRecording()} className="gap-2 w-full sm:w-auto">
+              <Button onClick={() => handleStartRecording()} className="gap-2 w-full">
                 <Mic className="h-4 w-4 shrink-0" />
                 Start Recording
               </Button>
@@ -454,17 +457,17 @@ export default function LiveMeetingPage() {
                   <Button
                     variant="outline"
                     onClick={handleTogglePause}
-                    className="gap-2 flex-1 sm:flex-none"
+                    className="gap-2 flex-1"
                   >
                     {isPaused ? (
                       <>
                         <Mic className="h-4 w-4 shrink-0" />
-                        Resume
+                        <span className="hidden sm:inline">Resume</span>
                       </>
                     ) : (
                       <>
                         <MicOff className="h-4 w-4 shrink-0" />
-                        Pause
+                        <span className="hidden sm:inline">Pause</span>
                       </>
                     )}
                   </Button>
@@ -472,7 +475,7 @@ export default function LiveMeetingPage() {
                 <Button
                   variant="destructive"
                   onClick={handleStopRecording}
-                  className="gap-2 flex-1 sm:flex-none"
+                  className="gap-2 flex-1"
                 >
                   <Square className="h-4 w-4 shrink-0" />
                   Stop
@@ -487,8 +490,8 @@ export default function LiveMeetingPage() {
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Transcript Panel */}
         <div className="lg:col-span-2">
-          <Card className="flex h-[600px] flex-col overflow-hidden p-0 gap-0">
-            <CardHeader className="shrink-0 border-b px-6 py-4">
+          <Card className="flex h-[55vh] min-h-[400px] sm:h-[600px] flex-col overflow-hidden p-0 gap-0">
+            <CardHeader className="shrink-0 border-b px-4 sm:px-6 py-3 sm:py-4">
               <CardTitle className="text-base">Live Transcript</CardTitle>
             </CardHeader>
             <CardContent className="flex min-h-0 flex-1 flex-col p-0">

@@ -54,26 +54,26 @@ export default function NotificationsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Notifications</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Notifications</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">
             {unreadCount > 0
               ? `You have ${unreadCount} unread notification${unreadCount > 1 ? 's' : ''}`
               : 'All caught up!'}
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {unreadCount > 0 && (
-            <Button variant="outline" size="sm" onClick={markAllAsRead} className="gap-2">
+            <Button variant="outline" size="sm" onClick={markAllAsRead} className="gap-2 shrink-0">
               <Check className="h-4 w-4" />
               Mark all as read
             </Button>
           )}
           {notifications.length > 0 && (
-            <Button variant="ghost" size="sm" onClick={deleteAllNotifications} className="gap-2 text-rose-500 hover:text-rose-600 hover:bg-rose-50">
+            <Button variant="ghost" size="sm" onClick={deleteAllNotifications} className="gap-2 text-rose-500 hover:text-rose-600 hover:bg-rose-50 shrink-0">
               <Trash2 className="h-4 w-4" />
-              Clear history
+              Clear
             </Button>
           )}
         </div>
@@ -147,25 +147,25 @@ export default function NotificationsPage() {
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <div className="flex items-start justify-between gap-2">
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
                         <div>
                           <p
                             className={cn(
-                              'font-medium',
+                              'font-medium text-sm sm:text-base pr-4 sm:pr-0',
                               !notification.is_read && 'text-primary'
                             )}
                           >
                             {notification.title}
                           </p>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
                             {notification.description}
                           </p>
-                          <p className="mt-1 text-xs text-muted-foreground/70">
+                          <p className="mt-1 text-[10px] sm:text-xs text-muted-foreground/70">
                             {new Date(notification.created_at).toLocaleString()}
                           </p>
                         </div>
 
-                        <div className="flex shrink-0 items-center gap-1">
+                        <div className="flex shrink-0 items-center justify-end gap-1 mt-2 sm:mt-0">
                           {!notification.is_read && (
                             <Button
                               variant="ghost"
@@ -189,7 +189,7 @@ export default function NotificationsPage() {
                     </div>
 
                     {!notification.is_read && (
-                      <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <div className="absolute top-6 right-4 sm:relative sm:top-0 sm:right-0 mt-0 sm:mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
                     )}
                   </div>
                 )
