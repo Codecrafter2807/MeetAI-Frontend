@@ -72,13 +72,13 @@ export function ChatBotWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col items-end">
       {/* Chat Window */}
       {isOpen && (
         <div 
           className={cn(
-            "mb-4 flex h-[80vh] sm:h-[500px] w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl transition-all duration-300 animate-in slide-in-from-bottom-5",
-            "sm:w-[400px]"
+            "mb-3 sm:mb-4 flex h-[60vh] max-h-[420px] sm:max-h-none sm:h-[500px] w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl transition-all duration-300 animate-in slide-in-from-bottom-5",
+            "sm:w-[380px]"
           )}
         >
           {/* Header */}
@@ -182,11 +182,11 @@ export function ChatBotWidget() {
         onClick={() => setIsOpen(!isOpen)}
         size="icon"
         className={cn(
-          "h-14 w-14 rounded-full shadow-2xl transition-all duration-500 transform",
+          "h-12 w-12 sm:h-14 sm:w-14 rounded-full shadow-2xl transition-all duration-500 transform",
           isOpen ? "rotate-90 bg-muted text-muted-foreground hover:bg-muted/80" : "bg-primary hover:scale-110 shadow-primary/30"
         )}
       >
-        {isOpen ? <X className="h-6 w-6" /> : <Bot className="h-6 w-6" />}
+        {isOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Bot className="h-5 w-5 sm:h-6 sm:w-6" />}
       </Button>
     </div>
   )
