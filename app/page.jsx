@@ -286,14 +286,13 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">AI automatically extracts and tracks action items from your meetings.</p>
              </div>
 
-             {/* Large Box 2 */}
-             <div className="md:col-span-2 group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-tl from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-indigo-500/30">
-                <div className="absolute bottom-0 left-0 -ml-8 -mb-8 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl transition-all group-hover:bg-indigo-500/20" />
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500 shadow-sm ring-1 ring-inset ring-indigo-500/20">
-                  <BarChart3 className="h-7 w-7" />
+             {/* Small Box 4 (was Large Box 2) */}
+             <div className="group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-tl from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-indigo-500/30">
+                <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500 mb-6">
+                  <BarChart3 className="h-6 w-6" />
                 </div>
-                <h3 className="mt-6 text-2xl font-bold text-foreground">Meeting Analytics</h3>
-                <p className="mt-3 text-lg leading-relaxed text-muted-foreground max-w-sm">Gain insights into meeting patterns, participation rates, and productivity metrics.</p>
+                <h3 className="text-xl font-bold text-foreground">Meeting Analytics</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Gain insights into meeting patterns, participation rates, and productivity metrics.</p>
              </div>
 
              {/* Full Width Box */}
