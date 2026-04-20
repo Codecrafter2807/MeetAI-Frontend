@@ -15,7 +15,7 @@ export function Footer() {
               <span className="text-xl font-bold tracking-tight text-foreground">MeetingAI</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Supercharge your meetings with AI-powered transcription, instant summaries, and automated action items.
+              Empowering high-performance teams with precise meeting intelligence and automated workspace solutions.
             </p>
             <div className="mt-6 flex items-center gap-4">
               <Link href="#" className="text-muted-foreground transition-all hover:text-primary hover:scale-110">
@@ -112,10 +112,10 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/50 pt-8 text-center sm:flex sm:items-center sm:justify-between">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} MeetingAI. Created with ❤️ for productive teams.
+            &copy; {new Date().getFullYear()} MeetingAI. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center gap-6 sm:mt-0">
-            <span className="text-xs text-muted-foreground/60">v1.2.0 - Stable</span>
+            <span className="text-xs text-muted-foreground/60">Built for the future of work</span>
           </div>
         </div>
       </div>
