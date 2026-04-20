@@ -367,14 +367,14 @@ export default function LiveMeetingPage() {
   return (
     <div ref={containerRef} className={cn("space-y-6 flex flex-col min-h-full", isFullscreen && "bg-background p-6 overflow-y-auto")}>
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Live Meeting</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-bold">Live Meeting</h1>
+          <p className="text-sm sm:text-base text-muted-foreground">
             Record and transcribe meetings in real-time
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center self-end sm:self-auto gap-2">
           <Button 
             variant="outline" 
             size="icon"
@@ -396,13 +396,13 @@ export default function LiveMeetingPage() {
 
       {/* Status Bar */}
       <Card>
-        <CardContent className="flex items-center justify-between p-4">
-          <div className="flex items-center gap-4">
+        <CardContent className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             {/* Recording indicator */}
             <div className="flex items-center gap-2">
               <div
                 className={cn(
-                  'h-3 w-3 rounded-full',
+                  'h-3 w-3 rounded-full shrink-0',
                   isRecording && !isPaused
                     ? 'bg-red-500 animate-pulse-recording'
                     : isPaused
@@ -410,7 +410,7 @@ export default function LiveMeetingPage() {
                     : 'bg-muted'
                 )}
               />
-              <span className="font-medium">
+              <span className="font-medium text-sm sm:text-base whitespace-nowrap">
                 {isRecording
                   ? isPaused
                     ? 'Paused'
@@ -423,47 +423,47 @@ export default function LiveMeetingPage() {
 
             {/* Timer */}
             <div className="flex items-center gap-2 text-muted-foreground">
-              <Clock className="h-4 w-4" />
-              <span className="font-mono text-lg">{formatTime(elapsedTime)}</span>
+              <Clock className="h-4 w-4 shrink-0" />
+              <span className="font-mono text-sm sm:text-lg">{formatTime(elapsedTime)}</span>
             </div>
 
             {/* Participants indicator */}
             {(isRecording || isMeetingEnded) && (
               <div className="flex items-center gap-2 text-muted-foreground">
-                <Users className="h-4 w-4" />
-                <span>{new Set(transcript.map((t) => t.speaker)).size} detected</span>
+                <Users className="h-4 w-4 shrink-0" />
+                <span className="text-sm sm:text-base whitespace-nowrap">{new Set(transcript.map((t) => t.speaker)).size} detected</span>
               </div>
             )}
           </div>
 
           {/* Controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             {!isRecording ? (
-              <Button onClick={() => handleStartRecording()} className="gap-2">
-                <Mic className="h-4 w-4" />
+              <Button onClick={() => handleStartRecording()} className="gap-2 w-full sm:w-auto">
+                <Mic className="h-4 w-4 shrink-0" />
                 Start Recording
               </Button>
             ) : (
               <>
                 {(!mediaRecorderRef.current || mediaRecorderRef.current.state === 'inactive') ? (
-                  <Button onClick={() => handleStartRecording(liveMeetingId)} className="gap-2 bg-amber-600 hover:bg-amber-700">
-                    <Mic className="h-4 w-4" />
+                  <Button onClick={() => handleStartRecording(liveMeetingId)} className="gap-2 bg-amber-600 hover:bg-amber-700 w-full sm:w-auto">
+                    <Mic className="h-4 w-4 shrink-0" />
                     Resume Session
                   </Button>
                 ) : (
                   <Button
                     variant="outline"
                     onClick={handleTogglePause}
-                    className="gap-2"
+                    className="gap-2 flex-1 sm:flex-none"
                   >
                     {isPaused ? (
                       <>
-                        <Mic className="h-4 w-4" />
+                        <Mic className="h-4 w-4 shrink-0" />
                         Resume
                       </>
                     ) : (
                       <>
-                        <MicOff className="h-4 w-4" />
+                        <MicOff className="h-4 w-4 shrink-0" />
                         Pause
                       </>
                     )}
@@ -472,9 +472,9 @@ export default function LiveMeetingPage() {
                 <Button
                   variant="destructive"
                   onClick={handleStopRecording}
-                  className="gap-2"
+                  className="gap-2 flex-1 sm:flex-none"
                 >
-                  <Square className="h-4 w-4" />
+                  <Square className="h-4 w-4 shrink-0" />
                   Stop
                 </Button>
               </>
