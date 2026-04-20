@@ -88,17 +88,17 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-2xl sm:text-3xl font-bold">Dashboard</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">
             Welcome back! Here&apos;s what&apos;s happening with your meetings.
           </p>
         </div>
-        <Link href="/live">
-          <Button className="gap-2">
+        <Link href="/live" className="shrink-0 w-full sm:w-auto">
+          <Button className="w-full sm:w-auto gap-2 shadow-sm h-11 sm:h-10">
             <Mic className="h-4 w-4" />
             Start Live Meeting
           </Button>
@@ -106,20 +106,23 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {statsConfigs.map((stat) => (
-          <Card key={stat.title} className="transition-all duration-200 hover:shadow-md border-primary/10">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
+          <Card key={stat.title} className="transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md border-primary/10 relative overflow-hidden group">
+            <div className="absolute inset-x-0 -bottom-1 h-1 bg-gradient-to-r from-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0 relative z-10 px-4 sm:px-6 pt-5 sm:pt-6">
+              <CardTitle className="text-xs sm:text-sm font-medium text-muted-foreground line-clamp-1 pr-2">
                 {stat.title}
               </CardTitle>
-              <stat.icon className="h-5 w-5 text-primary opacity-70" />
+              <div className="flex shrink-0 h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-primary/10">
+                <stat.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary opacity-80" />
+              </div>
             </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+            <CardContent className="relative z-10 px-4 pb-5 sm:px-6 sm:pb-6 pt-2">
+              <div className="text-2xl sm:text-3xl font-bold text-foreground">{stat.value}</div>
               <p
                 className={cn(
-                  'mt-1 text-[10px] font-medium uppercase tracking-wider',
+                  'mt-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider line-clamp-1',
                   stat.trend === 'up' ? 'text-emerald-500' : 'text-amber-500'
                 )}
               >
@@ -263,52 +266,52 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <Card>
-        <CardHeader>
+        <CardHeader className="pb-4">
           <CardTitle>Quick Actions</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 grid-cols-2 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Link href="/live">
-              <div className="group flex cursor-pointer items-center gap-4 rounded-lg border p-4 transition-all hover:border-primary/50 hover:bg-accent/50">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <Mic className="h-6 w-6 text-primary" />
+              <div className="group flex flex-col sm:flex-row cursor-pointer items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Mic className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Start Recording</h3>
-                  <p className="text-sm text-muted-foreground">Begin a live meeting</p>
+                  <h3 className="font-medium text-sm sm:text-base leading-tight mt-1 sm:mt-0">Start Recording</h3>
+                  <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Begin a live meeting</p>
                 </div>
               </div>
             </Link>
             <Link href="/upload">
-              <div className="group flex cursor-pointer items-center gap-4 rounded-lg border p-4 transition-all hover:border-primary/50 hover:bg-accent/50">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <FileText className="h-6 w-6 text-primary" />
+              <div className="group flex flex-col sm:flex-row cursor-pointer items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">Upload Recording</h3>
-                  <p className="text-sm text-muted-foreground">Transcribe audio files</p>
+                  <h3 className="font-medium text-sm sm:text-base leading-tight mt-1 sm:mt-0">Upload Recording</h3>
+                  <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Transcribe audio files</p>
                 </div>
               </div>
             </Link>
             <Link href="/meetings">
-              <div className="group flex cursor-pointer items-center gap-4 rounded-lg border p-4 transition-all hover:border-primary/50 hover:bg-accent/50">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <Calendar className="h-6 w-6 text-primary" />
+              <div className="group flex flex-col sm:flex-row cursor-pointer items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Calendar className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">View Meetings</h3>
-                  <p className="text-sm text-muted-foreground">Browse all meetings</p>
+                  <h3 className="font-medium text-sm sm:text-base leading-tight mt-1 sm:mt-0">View Meetings</h3>
+                  <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Browse all meetings</p>
                 </div>
               </div>
             </Link>
             <Link href="/analytics">
-              <div className="group flex cursor-pointer items-center gap-4 rounded-lg border p-4 transition-all hover:border-primary/50 hover:bg-accent/50">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <TrendingUp className="h-6 w-6 text-primary" />
+              <div className="group flex flex-col sm:flex-row cursor-pointer items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4 rounded-lg border p-3 sm:p-4 transition-all hover:border-primary/50 hover:bg-accent/50 hover:shadow-sm">
+                <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-medium">View Analytics</h3>
-                  <p className="text-sm text-muted-foreground">Meeting insights</p>
+                  <h3 className="font-medium text-sm sm:text-base leading-tight mt-1 sm:mt-0">View Analytics</h3>
+                  <p className="text-xs text-muted-foreground hidden sm:block mt-0.5">Meeting insights</p>
                 </div>
               </div>
             </Link>
