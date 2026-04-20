@@ -24,13 +24,11 @@ import {
 } from 'lucide-react'
 
 
-const navItems = [
+const mainNavItems = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'History', href: '/meetings', icon: Clock },
   { name: 'Strategic Hub', href: '/strategy', icon: Target },
-
   { name: 'Live Meeting', href: '/live', icon: Mic },
-
   { name: 'External Meeting', href: '/external', icon: Monitor },
   { name: 'AI Simulator', href: '/simulator', icon: Brain },
   { name: 'Upload', href: '/upload', icon: Upload },
@@ -38,6 +36,19 @@ const navItems = [
   { name: 'Notifications', href: '/notifications', icon: Bell },
   { name: 'Team', href: '/team', icon: Users },
   { name: 'Settings', href: '/settings', icon: Settings },
+]
+
+const resourceItems = [
+  { name: 'Documentation', href: '/docs' },
+  { name: 'Help Center', href: '/help' },
+  { name: 'API Reference', href: '/api' },
+  { name: 'Community', href: '/community' },
+]
+
+const legalItems = [
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms of Service', href: '/terms' },
+  { name: 'Cookie Policy', href: '/cookies' },
 ]
 
 export function Sidebar() {
@@ -87,26 +98,71 @@ export function Sidebar() {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-1 p-3 overflow-y-auto">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={closeMobileSidebar}
-                  className={cn(
-                    'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-200',
-                    isActive
-                      ? 'bg-sidebar-accent text-sidebar-accent-foreground'
-                      : 'text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground'
-                  )}
-                >
-                  <item.icon className={cn('h-5 w-5 shrink-0', isActive && 'text-primary')} />
-                  {(isOpen || isMobileOpen) && <span>{item.name}</span>}
-                </Link>
-              )
-            })}
+          <nav className="flex-1 space-y-1 p-3 overflow-y-auto custom-scrollbar">
+            {/* Main Nav */}
+            <div className="space-y-1">
+              {mainNavItems.map((item) => {
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={closeMobileSidebar}
+                    className={cn(
+                      'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200',
+                      isActive
+                        ? 'bg-sidebar-accent text-sidebar-accent-foreground'
+                        : 'text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground'
+                    )}
+                  >
+                    <item.icon className={cn('h-5 w-5 shrink-0', isActive && 'text-primary')} />
+                    {(isOpen || isMobileOpen) && <span>{item.name}</span>}
+                  </Link>
+                )
+              })}
+            </div>
+
+            {/* Resources Section */}
+            {(isOpen || isMobileOpen) && (
+              <div className="mt-8 px-3">
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-sidebar-foreground/40 mb-2">
+                  Resources
+                </h4>
+                <div className="space-y-1">
+                  {resourceItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={closeMobileSidebar}
+                      className="block py-1.5 text-sm text-sidebar-foreground/60 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Legal Section */}
+            {(isOpen || isMobileOpen) && (
+              <div className="mt-8 px-3 pb-4">
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-sidebar-foreground/40 mb-2">
+                  Legal
+                </h4>
+                <div className="space-y-1">
+                  {legalItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={closeMobileSidebar}
+                      className="block py-1.5 text-sm text-sidebar-foreground/60 hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </nav>
 
           {/* Collapse toggle (Desktop only) */}

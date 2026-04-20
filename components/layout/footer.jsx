@@ -65,22 +65,22 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Resources</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/docs" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/help" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/api" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   API Reference
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/community" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Community
                 </Link>
               </li>
@@ -92,17 +92,17 @@ export function Footer() {
             <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Legal</h4>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/privacy" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/terms" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link href="/cookies" className="text-sm text-muted-foreground transition-colors hover:text-primary">
                   Cookie Policy
                 </Link>
               </li>
