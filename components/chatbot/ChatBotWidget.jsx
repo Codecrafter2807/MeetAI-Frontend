@@ -77,7 +77,7 @@ export function ChatBotWidget() {
       {isOpen && (
         <div 
           className={cn(
-            "mb-4 flex h-[500px] w-[350px] flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl transition-all duration-300 animate-in slide-in-from-bottom-5",
+            "mb-4 flex h-[80vh] sm:h-[500px] w-[calc(100vw-3rem)] flex-col overflow-hidden rounded-2xl border bg-background shadow-2xl transition-all duration-300 animate-in slide-in-from-bottom-5",
             "sm:w-[400px]"
           )}
         >

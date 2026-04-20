@@ -165,9 +165,9 @@ export function WorkspaceChatWidget() {
   if (!workspace) return null;
 
   return (
-    <div className="fixed bottom-6 right-24 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 sm:right-24 z-50 flex flex-col items-end">
       {isOpen && (
-        <Card className="flex flex-col mb-4 overflow-hidden border bg-background shadow-2xl h-[550px] w-full sm:w-[400px] rounded-2xl relative animate-in slide-in-from-bottom-5 fade-in duration-300">
+        <Card className="flex flex-col mb-4 overflow-hidden border bg-background shadow-2xl h-[80vh] sm:h-[550px] w-[calc(100vw-3rem)] sm:w-[400px] rounded-2xl relative animate-in slide-in-from-bottom-5 fade-in duration-300">
           <CardHeader className="border-b bg-muted/30 pb-3 pt-4 px-5 flex flex-row items-center justify-between space-y-0">
             <div className="flex items-center gap-3">
               <div className="bg-primary/10 p-2 rounded-lg">
