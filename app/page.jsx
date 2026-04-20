@@ -248,7 +248,7 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {/* Large Box 1 */}
              <div className="md:col-span-2 group relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-br from-card to-card/50 backdrop-blur-xl p-8 transition-all hover:shadow-2xl hover:border-blue-500/30">
                 <div className="absolute top-0 right-0 -mr-8 -mt-8 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl transition-all group-hover:bg-blue-500/20" />
@@ -297,7 +297,7 @@ export default function HomePage() {
              </div>
 
              {/* Full Width Box */}
-             <div className="md:col-span-3 group relative overflow-hidden rounded-3xl border border-border/40 bg-card p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 transition-all hover:shadow-2xl hover:border-primary/30">
+             <div className="md:col-span-3 group relative overflow-hidden rounded-3xl border border-border/40 bg-card p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all hover:shadow-2xl hover:border-primary/30">
                 <div className="flex-1">
                   <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-4">
                     <CheckCircle className="h-6 w-6" />
@@ -305,10 +305,10 @@ export default function HomePage() {
                   <h3 className="text-xl font-bold text-foreground">Integration Ready</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground max-w-xl">Connect with Zoom, Google Meet, Teams, and your favorite productivity tools.</p>
                 </div>
-                <div className="flex-shrink-0 flex items-center gap-4 opacity-70">
-                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><CheckCircle className="h-5 w-5 text-muted-foreground"/></div>
-                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><Zap className="h-5 w-5 text-muted-foreground"/></div>
-                    <div className="h-12 w-12 rounded-full border border-border flex items-center justify-center bg-background"><ArrowRight className="h-5 w-5 text-muted-foreground"/></div>
+                <div className="flex-shrink-0 flex items-center justify-start md:justify-end gap-2 sm:gap-4 opacity-70">
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-border flex items-center justify-center bg-background"><CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground"/></div>
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-border flex items-center justify-center bg-background"><Zap className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground"/></div>
+                    <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-border flex items-center justify-center bg-background"><ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground"/></div>
                 </div>
              </div>
           </div>
@@ -472,37 +472,32 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="relative flex overflow-hidden w-full group">
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-            
-            <div className="flex animate-marquee group-hover:[animation-play-state:paused] gap-6 px-4">
-              {[...testimonials, ...testimonials, ...testimonials].map((testimonial, i) => (
-                <div key={i} className="flex-none w-[400px] relative flex flex-col rounded-3xl border border-border/40 bg-card/60 backdrop-blur-xl p-8 shadow-xl transition-all duration-300 hover:bg-card">
-                  <div className="mb-6 flex gap-1">
-                    {[...Array(testimonial.rating || 5)].map((_, j) => (
-                      <Sparkles key={j} className="h-5 w-5 text-blue-500 fill-current drop-shadow-sm" />
-                    ))}
-                  </div>
-                  <p className="text-foreground/90 leading-relaxed flex-grow text-lg italic tracking-wide">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="mt-10 flex items-center gap-4">
-                    {testimonial.avatar ? (
-                      <img src={testimonial.avatar} alt={testimonial.name} className="h-14 w-14 rounded-full object-cover border-2 border-background shadow-md" />
-                    ) : (
-                      <div className="h-14 w-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-blue-600 font-bold text-xl border-2 border-background shadow-md">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                    )}
-                    <div>
-                      <h4 className="font-bold text-foreground text-lg">{testimonial.name}</h4>
-                      <p className="text-sm font-medium text-muted-foreground">{testimonial.role}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, i) => (
+              <div key={i} className="relative flex flex-col rounded-3xl border border-border/40 bg-card/60 backdrop-blur-xl p-6 sm:p-8 shadow-xl transition-all duration-300 hover:bg-card hover:-translate-y-1 hover:shadow-blue-500/10 hover:border-blue-500/30">
+                <div className="mb-6 flex gap-1">
+                  {[...Array(testimonial.rating || 5)].map((_, j) => (
+                    <Sparkles key={j} className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 fill-current drop-shadow-sm" />
+                  ))}
+                </div>
+                <p className="text-foreground/90 leading-relaxed flex-grow text-base sm:text-lg italic tracking-wide">
+                  "{testimonial.quote}"
+                </p>
+                <div className="mt-8 flex items-center gap-4">
+                  {testimonial.avatar ? (
+                    <img src={testimonial.avatar} alt={testimonial.name} className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover border-2 border-background shadow-md" />
+                  ) : (
+                    <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-blue-600 font-bold text-lg sm:text-xl border-2 border-background shadow-md">
+                      {testimonial.name.charAt(0)}
                     </div>
+                  )}
+                  <div>
+                    <h4 className="font-bold text-foreground text-base sm:text-lg">{testimonial.name}</h4>
+                    <p className="text-xs sm:text-sm font-medium text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
