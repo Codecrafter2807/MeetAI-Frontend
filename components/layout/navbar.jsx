@@ -72,8 +72,9 @@ export function Navbar() {
 
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center lg:hidden">
-          <div className="flex h-12 w-40 items-center justify-start overflow-hidden">
-            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110 transition-transform duration-300" />
+          <div className="flex h-12 w-44 items-center justify-start overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110 transition-transform duration-300 dark:hidden" />
+            <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain scale-110 transition-transform duration-300 dark:block" />
           </div>
         </Link>
 
