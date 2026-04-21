@@ -219,9 +219,9 @@ export default function HomePage() {
               Stop taking notes. Let our advanced AI instantly transcribe, summarize, and organize your calls into assigned tasks so your team can move faster.
             </p>
             <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
-              <Link href={isLoggedIn ? "/meetings" : "/register"}>
+              <Link href={isLoggedIn ? "/meetings" : "/login"}>
                 <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-base font-semibold bg-foreground hover:bg-foreground/90 text-background border-0 shadow-2xl transition-all hover:-translate-y-1 hover:shadow-blue-500/25 rounded-xl">
-                  {isLoggedIn ? 'Access Dashboard' : 'Start Free Trial'}
+                  {isLoggedIn ? 'Access Dashboard' : 'Login to Account'}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
