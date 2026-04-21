@@ -82,9 +82,9 @@ export function Sidebar() {
             <Link href="/" className="flex items-center gap-2" onClick={closeMobileSidebar}>
               <div className={cn(
                 "flex items-center justify-center overflow-hidden transition-all duration-300",
-                (isOpen || isMobileOpen) ? "h-12 w-32" : "h-10 w-10 p-1"
+                (isOpen || isMobileOpen) ? "h-16 w-40" : "h-12 w-12 p-1"
               )}>
-                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110" />
               </div>
             </Link>
             <button 

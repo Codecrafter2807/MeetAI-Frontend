@@ -117,8 +117,8 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <Link href="/" className="mb-10 flex flex-col items-center justify-center gap-2">
-          <div className="flex h-32 w-full items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
+          <div className="flex h-40 w-full items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110" />
           </div>
         </Link>
 
