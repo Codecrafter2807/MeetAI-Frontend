@@ -8,9 +8,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
           <div className="md:col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-16 w-48 items-center justify-center overflow-hidden">
-                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110" />
+            <Link href="/" className="flex items-center">
+              <div className="flex h-24 w-64 items-center justify-center overflow-hidden -ml-12">
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-150" />
               </div>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
