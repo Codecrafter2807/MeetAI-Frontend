@@ -59,7 +59,7 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/95 px-2 md:px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-30 flex h-20 items-center justify-between border-b border-border bg-background/95 px-2 md:px-6 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex items-center gap-2 flex-1">
         <Button
           variant="ghost"
@@ -72,8 +72,8 @@ export function Navbar() {
 
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center gap-2 lg:hidden">
-          <div className="flex h-14 w-36 items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110" />
+          <div className="flex h-16 w-48 items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-150" />
           </div>
         </Link>
 

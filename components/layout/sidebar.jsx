@@ -78,13 +78,13 @@ export function Sidebar() {
       >
         <div className="flex h-full flex-col">
           {/* Logo */}
-          <div className="flex h-16 items-center justify-between border-b border-sidebar-border px-4">
+          <div className="flex h-20 items-center justify-between border-b border-sidebar-border px-4">
             <Link href="/" className="flex items-center gap-2" onClick={closeMobileSidebar}>
               <div className={cn(
                 "flex items-center justify-center overflow-hidden transition-all duration-300",
-                (isOpen || isMobileOpen) ? "h-16 w-40" : "h-12 w-12 p-1"
+                (isOpen || isMobileOpen) ? "h-20 w-48" : "h-14 w-14 p-1"
               )}>
-                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110" />
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-150" />
               </div>
             </Link>
             <button 
