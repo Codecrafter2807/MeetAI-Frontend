@@ -11,6 +11,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 export const metadata = {
   title: 'MeetingAI - AI Meeting Assistant',
   description: 'AI-powered meeting transcription, summaries, and action items',
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/logo (1).png',
+    apple: '/logo (1).png',
+    shortcut: '/logo (1).png',
+  },
 }
 
 export default function RootLayout({ children }) {
