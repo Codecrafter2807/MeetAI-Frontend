@@ -69,8 +69,8 @@ export default function ForgotPasswordPage() {
 
       <div className="w-full max-w-md">
         <Link href="/" className="mb-14 flex flex-col items-center justify-center gap-2">
-          <div className="flex h-48 w-full items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-180" />
+          <div className="flex h-32 w-full items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-125" />
           </div>
         </Link>
 
