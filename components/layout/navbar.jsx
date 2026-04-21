@@ -72,10 +72,9 @@ export function Navbar() {
 
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center gap-2 lg:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-            <Sparkles className="h-4 w-4 text-primary-foreground" />
+          <div className="flex h-10 w-24 items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
           </div>
-          <span className="text-lg font-bold tracking-tight text-foreground">MeetAI</span>
         </Link>
 
         {/* Search */}

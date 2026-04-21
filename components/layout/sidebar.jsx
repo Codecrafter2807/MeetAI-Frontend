@@ -80,14 +80,12 @@ export function Sidebar() {
           {/* Logo */}
           <div className="flex h-16 items-center justify-between border-b border-sidebar-border px-4">
             <Link href="/" className="flex items-center gap-2" onClick={closeMobileSidebar}>
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <Sparkles className="h-5 w-5 text-primary-foreground" />
+              <div className={cn(
+                "flex items-center justify-center overflow-hidden transition-all duration-300",
+                (isOpen || isMobileOpen) ? "h-12 w-32" : "h-10 w-10 p-1"
+              )}>
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
               </div>
-              {(isOpen || isMobileOpen) && (
-                <span className="text-lg font-semibold text-sidebar-foreground">
-                  MeetingAI
-                </span>
-              )}
             </Link>
             <button 
               onClick={closeMobileSidebar}

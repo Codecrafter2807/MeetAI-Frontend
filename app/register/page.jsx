@@ -150,11 +150,10 @@ export default function RegisterPage() {
 
       <div className="w-full max-w-md">
         {/* Logo */}
-        <Link href="/" className="mb-8 flex items-center justify-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
-            <Sparkles className="h-5 w-5 text-primary-foreground" />
+        <Link href="/" className="mb-10 flex flex-col items-center justify-center gap-2">
+          <div className="flex h-32 w-full items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
           </div>
-          <span className="text-xl font-semibold">MeetingAI</span>
         </Link>
 
         {/* Card */}

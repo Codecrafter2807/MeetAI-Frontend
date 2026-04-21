@@ -66,8 +66,8 @@ export default function InvitePage({ params }) {
     <div className="flex min-h-screen items-center justify-center bg-muted/30 p-4">
       <Card className="max-w-md w-full shadow-2xl border-none">
         <CardHeader className="text-center pb-2">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary mb-4 shadow-lg shadow-primary/20">
-            <Sparkles className="h-8 w-8 text-primary-foreground" />
+          <div className="mx-auto flex h-24 w-full items-center justify-center overflow-hidden mb-4">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
           </div>
           <CardTitle className="text-2xl font-bold">Team Invitation</CardTitle>
           <CardDescription>

@@ -9,10 +9,9 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <Sparkles className="h-5 w-5 text-primary-foreground" />
+              <div className="flex h-12 w-32 items-center justify-center overflow-hidden">
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain" />
               </div>
-              <span className="text-xl font-bold tracking-tight text-foreground">MeetingAI</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Empowering high-performance teams with precise meeting intelligence and automated workspace solutions.
