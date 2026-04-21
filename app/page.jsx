@@ -124,9 +124,9 @@ export default function HomePage() {
       <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
-            <div className="flex h-10 w-32 md:h-16 md:w-56 items-center justify-start overflow-hidden">
-              <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain dark:hidden md:scale-120 transition-transform duration-300" />
-              <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain dark:block md:scale-120 transition-transform duration-300" />
+            <div className="flex h-12 w-40 md:h-16 md:w-56 items-center justify-start overflow-hidden">
+              <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-110 md:scale-120 transition-transform duration-300 dark:hidden" />
+              <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain scale-110 md:scale-120 transition-transform duration-300 dark:block" />
             </div>
           </Link>
           <div className="hidden items-center gap-8 md:flex">
