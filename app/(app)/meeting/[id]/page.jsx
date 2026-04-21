@@ -25,8 +25,20 @@ import {
   Star,
   MessageSquare,
   Globe,
-  Radio
+  Radio,
+  Twitter,
+  Linkedin,
+  Instagram,
+  MessageCircle,
 } from 'lucide-react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
 import { fetchApi } from '@/lib/api'
 import { cn } from '@/lib/utils'
 
@@ -391,15 +403,83 @@ export default function MeetingDetailPage() {
               {meeting.is_shared ? "Shared with Workspace" : "Share with Workspace"}
             </Button>
           )}
-          <Button 
-            variant="outline" 
-            className="gap-2" 
-            disabled={isProcessing}
-            onClick={handleShare}
-          >
-            <Share2 className="h-4 w-4" />
-            Copy Link
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button 
+                variant="outline" 
+                className="gap-2" 
+                disabled={isProcessing}
+              >
+                <Share2 className="h-4 w-4" />
+                Share Meeting
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Share Meeting</DialogTitle>
+                <DialogDescription>
+                  Anyone with this link can view the transcript and summary.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex items-center space-x-2 py-4">
+                <div className="grid flex-1 gap-2">
+                  <Input
+                    id="meeting-link"
+                    defaultValue={typeof window !== 'undefined' ? window.location.href : ''}
+                    readOnly
+                    className="h-9 font-mono text-xs bg-muted"
+                  />
+                </div>
+                <Button size="sm" className="px-3" onClick={handleShare}>
+                  <span className="sr-only">Copy</span>
+                  <Copy className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="flex flex-col gap-4 border-t pt-4">
+                <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-widest">Share on Social</p>
+                <div className="flex items-center justify-center gap-4">
+                  {/* WhatsApp */}
+                  <Button 
+                    size="icon" 
+                    className="h-12 w-12 rounded-full bg-[#25D366] hover:bg-[#25D366]/90 text-white shadow-lg transition-all hover:-translate-y-1"
+                    onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(`Check out this meeting summary on MeetAI: ${window.location.href}`)}`, '_blank')}
+                  >
+                    <MessageCircle className="h-6 w-6" />
+                  </Button>
+                  
+                  {/* Twitter / X */}
+                  <Button 
+                    size="icon" 
+                    className="h-12 w-12 rounded-full bg-black hover:bg-black/90 text-white shadow-lg transition-all hover:-translate-y-1"
+                    onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reviewing my meeting on @MeetAI!`)}&url=${encodeURIComponent(window.location.href)}`, '_blank')}
+                  >
+                    <Twitter className="h-6 w-6" />
+                  </Button>
+                  
+                  {/* LinkedIn */}
+                  <Button 
+                    size="icon" 
+                    className="h-12 w-12 rounded-full bg-[#0077b5] hover:bg-[#0077b5]/90 text-white shadow-lg transition-all hover:-translate-y-1"
+                    onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank')}
+                  >
+                    <Linkedin className="h-6 w-6" />
+                  </Button>
+                  
+                  {/* Instagram */}
+                  <Button 
+                    size="icon" 
+                    className="h-12 w-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] hover:opacity-90 text-white shadow-lg transition-all hover:-translate-y-1"
+                    onClick={() => {
+                      handleShare();
+                      toast.info('Link copied! You can now paste it in your Instagram story or bio.');
+                    }}
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </Button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
           <Button 
             variant="outline" 
             className="gap-2" 

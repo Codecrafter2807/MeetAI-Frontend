@@ -11,7 +11,11 @@ import {
   Copy,
   Loader2,
   Trash2,
-  LogOut
+  LogOut,
+  Twitter,
+  Linkedin,
+  Instagram,
+  MessageCircle,
 } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
@@ -216,6 +220,50 @@ export function TeamSettings() {
                   <p className="text-[10px] text-muted-foreground">
                     This link allows anyone with a MeetAI account to join this workspace.
                   </p>
+
+                  <div className="pt-4 space-y-3">
+                    <p className="text-xs font-medium text-muted-foreground uppercase text-center">Or share via</p>
+                    <div className="flex items-center justify-center gap-3">
+                      {/* WhatsApp */}
+                      <Button 
+                        size="icon" 
+                        className="rounded-full bg-[#25D366] hover:bg-[#25D366]/90 text-white shadow-md transition-all hover:-translate-y-1"
+                        onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(`Join our team on MeetAI: ${inviteLink}`)}`, '_blank')}
+                      >
+                        <MessageCircle className="h-5 w-5" />
+                      </Button>
+                      
+                      {/* Twitter / X */}
+                      <Button 
+                        size="icon" 
+                        className="rounded-full bg-black hover:bg-black/90 text-white shadow-md transition-all hover:-translate-y-1"
+                        onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(`Join our team on MeetAI!`)}&url=${encodeURIComponent(inviteLink)}`, '_blank')}
+                      >
+                        <Twitter className="h-5 w-5" />
+                      </Button>
+                      
+                      {/* LinkedIn */}
+                      <Button 
+                        size="icon" 
+                        className="rounded-full bg-[#0077b5] hover:bg-[#0077b5]/90 text-white shadow-md transition-all hover:-translate-y-1"
+                        onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(inviteLink)}`, '_blank')}
+                      >
+                        <Linkedin className="h-5 w-5" />
+                      </Button>
+                      
+                      {/* Instagram */}
+                      <Button 
+                        size="icon" 
+                        className="rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] hover:opacity-90 text-white shadow-md transition-all hover:-translate-y-1"
+                        onClick={() => {
+                          copyToClipboard();
+                          toast.info('Link copied! Paste it in your Instagram story or bio.');
+                        }}
+                      >
+                        <Instagram className="h-5 w-5" />
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
