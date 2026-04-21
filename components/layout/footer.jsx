@@ -9,9 +9,9 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 lg:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
             <Link href="/" className="flex items-center">
-              <div className="flex h-20 w-80 md:h-24 md:w-96 items-center justify-center overflow-hidden">
-                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain dark:hidden md:scale-150 transition-transform duration-300" />
-                <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain dark:block md:scale-150 transition-transform duration-300" />
+              <div className="flex h-20 w-80 items-center justify-center overflow-hidden">
+                <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain dark:hidden" />
+                <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain dark:block" />
               </div>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
