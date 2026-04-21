@@ -8,13 +8,14 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
+export const metadata = {
+  title: 'MeetingAI - AI Meeting Assistant',
+  description: 'AI-powered meeting transcription, summaries, and action items',
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <title>MeetingAI - AI Meeting Assistant</title>
-        <meta name="description" content="AI-powered meeting transcription, summaries, and action items" />
-      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
