@@ -151,9 +151,9 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <Link href="/" className="mb-14 flex flex-col items-center justify-center gap-2">
-          <div className="flex h-32 w-full items-center justify-center overflow-hidden">
-            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-125 dark:hidden" />
-            <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain scale-125 dark:block" />
+          <div className="flex h-32 md:h-40 w-full items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-125 md:scale-150 dark:hidden transition-transform duration-300" />
+            <img src="/logo_d.png" alt="MeetAI" className="hidden h-full w-full object-contain scale-125 md:scale-150 dark:block transition-transform duration-300" />
           </div>
         </Link>
 
