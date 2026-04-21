@@ -17,6 +17,18 @@ export const metadata = {
     apple: '/logo (1).png',
     shortcut: '/logo (1).png',
   },
+  openGraph: {
+    title: 'MeetingAI - AI Meeting Assistant',
+    description: 'AI-powered meeting transcription, summaries, and action items',
+    images: [{ url: '/logo (1).png' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MeetingAI - AI Meeting Assistant',
+    description: 'AI-powered meeting transcription, summaries, and action items',
+    images: ['/logo (1).png'],
+  },
 }
 
 export default function RootLayout({ children }) {
