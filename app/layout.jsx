@@ -13,21 +13,21 @@ export const metadata = {
   description: 'AI-powered meeting transcription, summaries, and action items',
   manifest: '/manifest.json',
   icons: {
-    icon: '/logo_d.png',
-    apple: '/logo_d.png',
-    shortcut: '/logo_d.png',
+    icon: '/logo (1).png',
+    apple: '/logo (1).png',
+    shortcut: '/logo (1).png',
   },
   openGraph: {
     title: 'MeetingAI - AI Meeting Assistant',
     description: 'AI-powered meeting transcription, summaries, and action items',
-    images: [{ url: '/logo_d.png' }],
+    images: [{ url: '/logo (1).png' }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MeetingAI - AI Meeting Assistant',
     description: 'AI-powered meeting transcription, summaries, and action items',
-    images: ['/logo_d.png'],
+    images: ['/logo (1).png'],
   },
 }
 
