@@ -7,9 +7,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
           {/* Brand */}
-          <div className="md:col-span-2 lg:col-span-2">
+          <div className="md:col-span-2 lg:col-span-2 flex flex-col items-center md:items-start text-center md:text-left">
             <Link href="/" className="flex items-center">
-              <div className="flex h-24 w-64 items-center justify-center overflow-hidden -ml-12">
+              <div className="flex h-24 w-64 items-center justify-center overflow-hidden">
                 <img src="/logo.png" alt="MeetAI" className="h-full w-full object-contain scale-150" />
               </div>
             </Link>
