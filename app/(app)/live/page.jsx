@@ -170,7 +170,7 @@ export default function LiveMeetingPage() {
         } catch (error) {
           console.error('Failed to fetch live updates:', error)
         }
-      }, 3000)
+      }, 10000)
     }
     return () => {
         if (interval) clearInterval(interval)
@@ -259,13 +259,13 @@ export default function LiveMeetingPage() {
       mediaRecorderRef.current = mr
       streamRef.current = stream
 
-      // Restart MediaRecorder every 3s so every chunk gets a full WebM header
+      // Restart MediaRecorder every 10s so every chunk gets a full WebM header
       const interval = setInterval(() => {
         if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
             mediaRecorderRef.current.stop()
             mediaRecorderRef.current.start()
         }
-      }, 3000)
+      }, 10000)
       recordingIntervalRef.current = interval
 
       setIsRecording(true)
@@ -332,7 +332,7 @@ export default function LiveMeetingPage() {
             mediaRecorderRef.current.stop()
             mediaRecorderRef.current.start()
         }
-      }, 3000)
+      }, 10000)
       recordingIntervalRef.current = interval
     } else {
       if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
