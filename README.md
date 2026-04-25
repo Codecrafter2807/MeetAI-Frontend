@@ -1,4 +1,14 @@
+---
+title: MeetAI Frontend
+emoji: 🎨
+colorFrom: purple
+colorTo: indigo
+sdk: docker
+pinned: false
+---
+
 # MeetAI Frontend 🎨
+
 
 The modern, sleek, and highly interactive user interface for MeetAI. Built for performance and premium user experience.
 
